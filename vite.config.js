@@ -92,7 +92,7 @@ export default ({ mode }) =>
       viteCompression(),
     ],
     server: {
-      port: "3000",
+      port: "8081",
       open: true,
     },
     resolve: {
