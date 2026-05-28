@@ -4,24 +4,17 @@ import dayjs from "dayjs";
 
 // 时钟
 export const getCurrentTime = () => {
-  let time = new Date();
-  let year = time.getFullYear();
-  let month = time.getMonth() + 1 < 10 ? "0" + (time.getMonth() + 1) : time.getMonth() + 1;
-  let day = time.getDate() < 10 ? "0" + time.getDate() : time.getDate();
-  let hour = time.getHours() < 10 ? "0" + time.getHours() : time.getHours();
-  let minute = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
-  let second = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
-  let weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-  let currentTime = {
-    year,
-    month,
-    day,
-    hour,
-    minute,
-    second,
-    weekday: weekday[time.getDay()],
+  const time = dayjs();
+  const weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+  return {
+    year: time.format("YYYY"),
+    month: time.format("MM"),
+    day: time.format("DD"),
+    hour: time.format("HH"),
+    minute: time.format("mm"),
+    second: time.format("ss"),
+    weekday: weekday[time.day()],
   };
-  return currentTime;
 };
 
 // 时光胶囊
