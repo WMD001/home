@@ -13,8 +13,7 @@ export const getPlayerList = async (server, type, id) => {
   const data = await res.json();
 
   if (data[0].url.startsWith("@")) {
-    // eslint-disable-next-line no-unused-vars
-    const [handle, jsonpCallback, jsonpCallbackFunction, url] = data[0].url.split("@").slice(1);
+    const url = data[0].url.split("@").slice(1).pop();
     const jsonpData = await fetchJsonp(url).then((res) => res.json());
     const domain = (
       jsonpData.req_0.data.sip.find((i) => !i.startsWith("http://ws")) ||

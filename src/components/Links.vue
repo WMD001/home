@@ -81,9 +81,6 @@ const jumpLink = (data) => {
   }
 };
 
-onMounted(() => {
-  console.log(siteLinks);
-});
 </script>
 
 <style lang="scss" scoped>
